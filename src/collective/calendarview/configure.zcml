@@ -6,14 +6,13 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="collective.calendarview">
 
-
   <genericsetup:registerProfile
-      name="default"
-      title="collective.calendarview"
-      directory="profiles/default"
-      description="Installs the collective.calendarview package"
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
+    name="default"
+    title="Calendar View"
+    directory="profiles/default"
+    description="Installs the collective.calendarview package"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
 
   <browser:resourceDirectory
     name="collective.calendarview"
@@ -21,12 +20,13 @@
     />
 
   <browser:page
-      for="*"
-      name="calendar-view"
-      class=".browser.CalendarView"
-      template="calendar.pt"
-      permission="zope2.View"
-      />
-
+    for="*"
+    name="calendar-view"
+    class=".browser.CalendarView"
+    template="calendar.pt"
+    permission="zope2.View"
+    title="Calendar View"
+    menu="plone_displayviews"
+    />
 
 </configure>
