@@ -6,30 +6,34 @@ from zope.schema.fieldproperty import FieldProperty
 from z3c.form.object import registerFactoryAdapter
 
 from collective.configviews.api import ConfigurableBaseView
+from . import messageFactory as _
 
 
 class ICalendar(Interface):
 
     title = schema.TextLine(
-        title=u'Title',
+        title=_(u'Title'),
         description=u'',
         required=True,
     )
 
     name = schema.TextLine(
-        title=u'name',
-        description=u'',
+        title=_(u'Name'),
+        description=_(
+            u'Used as unique identifier for a group of events. '
+            u'It could be used as css class to change events style'
+        ),
         required=True,
     )
 
     url = schema.TextLine(
-        title=u'URL',
+        title=_(u'URL'),
         description=u'',
         required=True,
     )
 
     active = schema.Bool(
-        title=u'Active',
+        title=_(u'Active'),
         description=u'',
         required=True,
         default=True
@@ -55,7 +59,7 @@ class Calendar(SimpleItem):
             'title': self.title,
             'name': self.name,
             'url': self.url,
-            'active': self.active
+            'active': self.active,
         }
 
 registerFactoryAdapter(ICalendar, Calendar)
