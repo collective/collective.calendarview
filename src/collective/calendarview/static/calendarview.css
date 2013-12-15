@@ -4,7 +4,7 @@
 }
 
 #calendar-legend {
-  width: 100px;
+  width: 16%;
   float: left;
   margin-top: 2em;
 }
@@ -50,19 +50,19 @@
 .cal1 {
   background-color: OliveDrab;
   border: 1px solid DarkOliveGreen;
-  color: white
+  color: white !important;
 }
 
 .cal2 {
   background-color: Khaki;
   border: 1px solid DarkKhaki;
-  color: black
+  color: black !important;
 }
 
 .cal3 {
   background-color: Plum;
   border: 1px solid Orchid;
-  color: black
+  color: black !important;
 }
 
 .festivita,
@@ -70,5 +70,15 @@
 #content .festivita:visited {
   background-color: FireBrick;
   border: 1px solid DarkRed;
-  color: white
+  color: white !important;
+}
+
+.template-calendar-view .tooltip {
+    border:1px solid #ddd;
+    padding:.5em 1em;
+    width:200px;
+    display:none;
+    color:#000;
+    text-align:left;
+    box-shadow:1px 2px 5px #ddd;
 }

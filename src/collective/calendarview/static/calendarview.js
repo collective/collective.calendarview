@@ -34,13 +34,50 @@
                         right: 'month,agendaWeek,agendaDay'
                     },
                     editable: false,
-                    eventClick: self.eventClick
+                    eventClick: self.eventClick,
+                    eventAfterRender: function (event, element, view) {
+                        var link = $(element),
+                            tooltip_str = self.tooltipFormat(event);
+
+                        link.attr('title', tooltip_str);
+                        link.tooltip({
+                            position: "top center",
+                            offset: [-5, 0]
+                        });
+                    }
                 }, self.settings);
 
             self.trigger.fullCalendar(settings);
             self.data = self.getEventsData();
             self.initEvents();
             self.bindLegend();
+        },
+
+        tooltipFormat: function (event) {
+            var self = this,
+                tooltip_str = '<strong>' + event.title + '</strong>';
+
+            if (event.description)
+                tooltip_str += '<p>' + event.description + '</p>';
+
+            tooltip_str += '<p>' + self.dateFormat(event.start, event.allDay);
+
+            if (event.end)
+                tooltip_str += ' - ' + self.dateFormat(event.end, event.allDay);
+            tooltip_str += '</p>';
+
+            return tooltip_str;
+        },
+
+        dateFormat: function (date, short_format) {
+            var date_str = date.getDate() + '/' +
+                    (date.getMonth() + 1) + '/' +
+                    date.getFullYear();
+
+                if (! short_format)
+                    date_str += ' ' + date.getHours() + ':' + date.getMinutes();
+
+            return date_str;
         },
 
         getEventsData: function() {
@@ -83,11 +120,6 @@
             }
         },
 
-        eventClick: function (calEvent, jsEvent, view) {
-            alert('Not implemented Error!!!');
-            jsEvent.preventDefault();
-        },
-
         displayEvents: function (name) {
             var self = this;
             self.trigger.fullCalendar(
@@ -117,11 +149,6 @@
             }
         },
 
-        // legendElements: function () {
-        //     var self = this;
-        //     return self.legend.find('div');
-        // },
-
         bindLegend: function () {
             var self = this,
                 el,
@@ -134,6 +161,10 @@
                     self.toggleEvents(input);
                 });
             });
+        },
+
+        eventClick: function (calEvent, jsEvent, view) {
+            jsEvent.preventDefault();
         }
 
     };
