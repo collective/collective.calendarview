@@ -33,7 +33,6 @@
                         center: 'title',
                         right: 'month,agendaWeek,agendaDay'
                     },
-                    timezone: 'local',
                     editable: false,
                     eventClick: self.eventClick,
                     eventAfterRender: function (event, element, view) {
