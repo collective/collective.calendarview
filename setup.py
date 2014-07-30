@@ -26,16 +26,8 @@ setup(name='collective.calendarview',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          # 'plone.app.dexterity',
           'collective.configviews',
           'collective.js.fullcalendar'
-          # 'plone.behavior',
-          # dexterity dependencies
-          # 'plone.autoform',
-          # 'plone.supermodel',
-
-
-
       ],
       extras_require={
           'test': [
