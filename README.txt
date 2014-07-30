@@ -16,3 +16,10 @@ Usage
 2. Create a folder and apply 'Calendar view' to it
 3. Click on 'configure view' link to add calendars
 4. Add calendars data and save
+
+Credits
+-------
+
+.. image:: http://www.abstract.it/logo-abstract-readme
+   :alt: Abstract Website
+   :target: http://www.abstract.it
