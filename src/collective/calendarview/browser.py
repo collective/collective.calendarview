@@ -32,6 +32,12 @@ class ICalendar(Interface):
         required=True,
     )
 
+    api_key= schema.TextLine(
+        title=_(u'apiKey'),
+        description=u'api key, required for google calendar',
+        required=True,
+    )
+
     active = schema.Bool(
         title=_(u'Active'),
         description=u'',
@@ -46,6 +52,7 @@ class Calendar(SimpleItem):
     title = FieldProperty(ICalendar['title'])
     name = FieldProperty(ICalendar['name'])
     url = FieldProperty(ICalendar['url'])
+    api_key = FieldProperty(ICalendar['api_key'])
     active = FieldProperty(ICalendar['active'])
 
     __name__ = ''
@@ -59,6 +66,7 @@ class Calendar(SimpleItem):
             'title': self.title,
             'name': self.name,
             'url': self.url,
+            'api_key': self.api_key,
             'active': self.active,
         }
 
