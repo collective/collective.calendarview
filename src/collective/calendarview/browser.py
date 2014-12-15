@@ -26,8 +26,8 @@ class ICalendar(Interface):
         required=True,
     )
 
-    url = schema.TextLine(
-        title=_(u'URL'),
+    calendar_id = schema.TextLine(
+        title=_(u'Calendar ID'),
         description=u'',
         required=True,
     )
@@ -51,7 +51,7 @@ class Calendar(SimpleItem):
 
     title = FieldProperty(ICalendar['title'])
     name = FieldProperty(ICalendar['name'])
-    url = FieldProperty(ICalendar['url'])
+    calendar_id = FieldProperty(ICalendar['calendar_id'])
     api_key = FieldProperty(ICalendar['api_key'])
     active = FieldProperty(ICalendar['active'])
 
@@ -65,7 +65,7 @@ class Calendar(SimpleItem):
         return {
             'title': self.title,
             'name': self.name,
-            'url': self.url,
+            'calendar_id': self.calendar_id,
             'api_key': self.api_key,
             'active': self.active,
         }

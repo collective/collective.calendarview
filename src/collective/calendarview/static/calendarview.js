@@ -88,6 +88,11 @@
 
             self.sources.each(function () {
                 el = $(this);
+                data[googleCalendarApiKey] = el.data("calendar-api_key");
+                data[events] = {
+                    googleCalendarId: el.data("calendar-id"),
+                    className: 'gcal-event' // an option!
+                };
                 name = el.data("calendar-name");
                 data[name] = {
                     url: el.data("calendar-url"),

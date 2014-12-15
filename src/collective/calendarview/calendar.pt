@@ -17,7 +17,7 @@
                    data-calendar-url=""
                    tal:define="active calendar/active"
                    tal:attributes="class calendar/css_class;
-                   data-calendar-url calendar/url;
+                   data-calendar-id calendar/calendar_id;
                    data-calendar-api_key calendar/api_key;
                    data-calendar-name calendar/name">
                 <input type="checkbox" checked="1"
